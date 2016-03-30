@@ -1,0 +1,14 @@
+[Unit]
+Description=Arcade Syncing Daemon
+Type=forking
+After=network.target
+
+[Service]
+User=admin
+ExecStart=/usr/bin/node /home/admin/arcade-syncer/sync-arcade.js
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
