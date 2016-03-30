@@ -15,10 +15,10 @@ watch(deltaPath, function(filename){
 	var cmd = "";
 
 	if(fileExists){ //not a deletion
-		cmd = 'scp -pr "' + filename + '" ' + 'pi@10.0.0.39:"' + arcadePath + file + '"';
+		cmd = 'scp -pr "' + filename + '" ' + 'pi@10.0.0.13:"' + arcadePath + file + '"';
 		console.log('Add/Sync: ', cmd);
 	}else{ //is a deletion
-		cmd = 'ssh pi@10.0.0.39 "rm -r ' + arcadePath + file + '"';
+		cmd = 'ssh pi@10.0.0.13 "rm -r ' + arcadePath + file + '"';
 		console.log('Delete: ', cmd);
 	}
 	var child = exec(cmd, function(error, stdout, stderr){
